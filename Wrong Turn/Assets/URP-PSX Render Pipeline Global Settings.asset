@@ -16,7 +16,10 @@ MonoBehaviour:
   m_RenderingLayerNames:
   - Default
   - Layer 1
-  m_ValidRenderingLayers: 3
+  - Layer 2
+  - Layer 3
+  - Layer 4
+  m_ValidRenderingLayers: 31
   lightLayerName0: 
   lightLayerName1: 
   lightLayerName2: 

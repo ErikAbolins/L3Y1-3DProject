@@ -57,22 +57,22 @@ MonoBehaviour:
     m_Value: {x: 0, y: 0}
   grilleOpacity:
     m_OverrideState: 1
-    m_Value: 0.4
+    m_Value: 0.2
   grilleCounterOpacity:
     m_OverrideState: 1
-    m_Value: 0.2
+    m_Value: 0.3
   grilleResolution:
     m_OverrideState: 1
-    m_Value: 360
+    m_Value: 640
   grilleCounterResolution:
     m_OverrideState: 1
-    m_Value: 540
+    m_Value: 380
   grilleUvRotation:
     m_OverrideState: 1
-    m_Value: 1.618034
+    m_Value: 90
   grilleBrightness:
     m_OverrideState: 1
-    m_Value: 15
+    m_Value: 16
   grilleUvMidPoint:
     m_OverrideState: 1
     m_Value: 0.5
