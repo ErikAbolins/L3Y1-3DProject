@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class FinaleTrigger : MonoBehaviour
 {
@@ -10,6 +11,9 @@ public class FinaleTrigger : MonoBehaviour
     public Image blackScreen;
     public float fadeDuration = 2f;
     public AudioSource staticSound;
+    public AudioClip finalGPSLine;
+    public AudioSource gpsAudioSource;
+    public float waitBeforeGpsLine = 3f;
 
    private void Start()
    {
@@ -54,6 +58,17 @@ public class FinaleTrigger : MonoBehaviour
         }
 
         yield return StartCoroutine(FadeFromBlack());
+
+        yield return new WaitForSeconds(waitBeforeGpsLine);
+
+        if (gpsAudioSource != null && finalGPSLine != null)
+        {
+            gpsAudioSource.PlayOneShot(finalGPSLine);
+        }
+
+        yield return new WaitForSeconds(finalGPSLine.length);
+
+        SceneManager.LoadScene("Menu");
    }
 
    private IEnumerator FadeToBlack()
