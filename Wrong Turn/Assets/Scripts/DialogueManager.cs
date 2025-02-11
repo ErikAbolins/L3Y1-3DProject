@@ -5,58 +5,58 @@ using TMPro;
 
 public class DialogueManager : MonoBehaviour
 {
-    public GameObject chatBox;  // Reference to the UI chatbox
-    public TextMeshProUGUI dialogueText;  // Reference to the dialogue text field
+    public GameObject chatBox;  
+    public TextMeshProUGUI dialogueText;  
     private Queue<string> sentences = new Queue<string>();
 
     private void Start()
     {
-        chatBox.SetActive(false);  // Start with the chatbox hidden
+        chatBox.SetActive(false);  
     }
 
-    // Start the dialogue with a list of sentences
+    
     public void StartDialogue(string[] dialogue)
     {
-        chatBox.SetActive(true);  // Show the chatbox
-        sentences.Clear();  // Clear any previous sentences
+        chatBox.SetActive(true);  
+        sentences.Clear();  
 
         foreach (string sentence in dialogue)
         {
-            sentences.Enqueue(sentence);  // Add each sentence to the queue
+            sentences.Enqueue(sentence);  
         }
 
-        DisplayNextSentence();  // Display the first sentence immediately
+        DisplayNextSentence();  
     }
 
-    // Display the next sentence in the queue
+    
     public void DisplayNextSentence()
     {
         if (sentences.Count == 0)
         {
-            StartCoroutine(EndDialogueAfterDelay());  // If no sentences left, wait for a few seconds before ending the dialogue
+            StartCoroutine(EndDialogueAfterDelay());  
             return;
         }
 
-        string sentence = sentences.Dequeue();  // Get the next sentence
-        dialogueText.text = sentence;  // Display the sentence on the UI
+        string sentence = sentences.Dequeue();  
+        dialogueText.text = sentence;  
 
-        // If it's the last sentence, wait a bit before hiding the chatbox
+        
         if (sentences.Count == 0)
         {
-            StartCoroutine(EndDialogueAfterDelay());  // Automatically hide chatbox after the last sentence
+            StartCoroutine(EndDialogueAfterDelay());  
         }
     }
 
-    // Coroutine to wait for a few seconds before hiding the chatbox
+    
     private IEnumerator EndDialogueAfterDelay()
     {
-        yield return new WaitForSeconds(2f);  // Wait for 2 seconds (adjust time as needed)
-        EndDialogue();  // End the dialogue and hide the chatbox
+        yield return new WaitForSeconds(2f);  
+        EndDialogue();  
     }
 
-    // End the dialogue and hide the chatbox
+    
     public void EndDialogue()
     {
-        chatBox.SetActive(false);  // Hide the chatbox
+        chatBox.SetActive(false);  
     }
 }
